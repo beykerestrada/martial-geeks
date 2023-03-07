@@ -1,0 +1,38 @@
+.hero-container {
+    min-height: 100vh;
+    width: 100%;
+    .hero {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .hero__text {
+            width: 50%;
+            .hero__h2 {
+                span {
+                    display: block;
+                }
+            font-size: 80px;
+        }
+        .hero__p {
+            font-size: 30px;
+        }
+        .hero__span {
+            font-size: 25px;
+        }
+        .hero__btn-container {
+            margin-top: 30px;
+        }
+        }
+        
+        .hero__img {
+            width: 50%;
+            height: 100%;
+            position: relative;
+            img {
+                transform: translate(-40%, 0%) scale(1.6);
+            }
+        }
+    }
+}

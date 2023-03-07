@@ -1,0 +1,16 @@
+
+.primaryButton {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: #FF3130;
+    box-shadow: 0 7px 7px #aba9a9;
+    transition: all .4s;
+    &:hover {
+    background-color: #b90404;
+    }
+}
