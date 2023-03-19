@@ -4,6 +4,6 @@ export const pedirDatos = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(MOCK_DATA)
-        }, 4000)
+        }, 4000) // Se setea un timeout para simular la peticion al servidor y mostrar el loading antes de renderizar los productos
     })
 }

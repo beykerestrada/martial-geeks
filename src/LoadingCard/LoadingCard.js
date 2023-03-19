@@ -1,5 +1,5 @@
 import './LoadingCard.scss'
-
+//Esta tarjeta se muestra mientras se obtienen los datos de los productos para poder renderizar las tarjetas reales
 const LoadingCard = () => {
 
     return (

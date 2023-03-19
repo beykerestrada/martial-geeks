@@ -12,7 +12,8 @@ function App() {
       <Routes>
         <Route path='/' element={
           <div>
-            {/* <Hero/> */}
+            {/* Se deja comentado el hero por esta vez para ir trabajando poco a poco en el, Por ahora me interesa mostrar los componentes necesarios para el desafio */}
+            {/* <Hero/> */} 
             <ItemListContainer/>
           </div>
         }/>
