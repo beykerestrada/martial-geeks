@@ -1,0 +1,108 @@
+[
+    {
+        "id": 1,
+        "name": "Punching bag",
+        "description": "Mejora tu técnica y desarrolla fuerza, velocidad y potencia de golpeo y pateo con este saco resistente y duradero",
+        "price": "$120",
+        "img": "img/logo.png"
+    },
+    {
+        "id": 2,
+        "name": "Canilleras",
+        "description": "Protege tus piernas mientras entrenas, con la mayor relacion entre protección y comodidad",
+        "price": "$95",
+        "img": "img/logo.png"
+    },
+    {
+        "id": 3,
+        "name": "Guantes de box 14oz",
+        "description": "Recomendados para sparring y práctica con saco, sus 14oz protegeran tus manos y muñecas de cualquier lesión. ",
+        "price": "$90",
+        "img": "img/logo.png"
+    },
+    {
+        "id": 4,
+        "name": "Guantes de box 10oz",
+        "description": "Guantes recomendados para competición. Golpea con seguridad mientras proteges tus manos y muñecas de lesiones",
+        "price": "$130",
+        "img": "img/logo.png"
+    },
+    {
+        "id": 5,
+        "name": "Vendas 4.5m",
+        "description": "El complemento perfecto de los guantes. Protege tus manos, muñecas y nudillos mientras te centras en mejorar tu técnica",
+        "price": "$13",
+        "img": "img/logo.png"
+    },
+    {
+        "id": 6,
+        "name": "Protector inguinal",
+        "description": "Protégete de los golpes bajos, este protector es muy rígido y a la vez cómodo para darte máxima libertad de movimiento",
+        "price": "$23",
+        "img": "img/logo.png"
+    },
+    {
+        "id": 7,
+        "name": "Protector bucal",
+        "description": "Se adapta perfectaemente a tu mordida y le da máxima protección a tus dientes",
+        "price": "$15",
+        "img": "img/logo.png"
+    },
+    {
+        "id": 8,
+        "name": "Guantes MMA",
+        "description": "Guantes de 6 onzas para proteger tus manos, muy cómodos para poder desenvolverte en grappling ",
+        "price": "$87",
+        "img": "img/logo.png"
+    },
+    {
+        "id": 9,
+        "name": "Shorts de Muay Thai/ Kickboxing",
+        "description": "Cómodos y resistentes, patea sin problemas en el tatami o el el gym",
+        "price": "$45",
+        "img": "img/logo.png"
+    },
+    {
+        "id": 10,
+        "name": "Tatami individual",
+        "description": "Hechos con espuma de alta densidad, te protege de lesiones, antidezlizantes; los puedes colocar en cualquier superficie",
+        "price": "$18",
+        "img": "img/logo.png"
+    },
+    {
+        "id": 11,
+        "name": "Casco/ Cabezal",
+        "description": "Entrena con confianza, este casco protege tu cabeza de golpes y patadas. Absorbe el daño eficientemente y no te quita visibilidad",
+        "price": "$23",
+        "img": "img/logo.png"
+    },
+    {
+        "id": 12,
+        "name": "Bandas de resistencia",
+        "description": "Desarrolla fuerza y potencia complementando tu entrenamiento con estas bandas con distintos niveles de resitencia",
+        "price": "$90",
+        "img": "img/logo.png"
+    },
+    {
+        "id": 13,
+        "name": "Pechera femenina",
+        "description": "Extremadamente rígida para darte la mejor protección pero con un diseño ergonómico que te permite máxima movilidad",
+        "price": "$60",
+        "img": "img/logo.png"
+    },
+    {
+        "id": 14,
+        "name": "Rueda de abdominales",
+        "description": "Fortalece tu core rápidamente. La rueda de abdominales te ayuda a entrenar diferentes grupos musculares de manera eficiente",
+        "price": "$15",
+        "img": "img/logo.png"
+    },
+    {
+        "id": 15,
+        "name": "Gi para Jiu-jitsu",
+        "description": "Hecho de tela super resistente y cómoda. Además su microtejido está diseñado para un mejor ventilación",
+        "price": "$130",
+        "img": "img/logo.png"
+    }
+    
+]

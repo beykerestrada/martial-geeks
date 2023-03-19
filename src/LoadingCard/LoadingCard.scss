@@ -1,0 +1,69 @@
+.loadingCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30%;
+    height: 400px;
+    min-width: 250px;
+    border-radius: 6px;
+    @keyframes fade {
+        0%,
+        100% {
+            background-color: #f0ebeb;
+        }
+        50% {
+            background-color: #d5d5d5;
+
+        }
+    }
+    .loading-1, .loading-2, .loading-3, .loading-4, .loading-5 {
+        background-color: #f0ebeb;
+        
+    }
+    .loading-2, .loading-3, .loading-4, .loading-5 {
+        margin: 0 10px 5px 10px;
+    }
+    .loading-1 {
+        height: 150px;
+        animation: fade 2s ease-in-out infinite;
+
+    }
+    .loading-2 {
+        width: 80%;
+        height: 30px;
+        animation: fade 2s ease-in-out .1s infinite;
+    }
+    .loading-3 {
+        height: 100px;
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        .child{
+            height: 20px;
+            animation: fade 2s ease-in-out .3s infinite;
+
+        }
+        .child-1 {
+            width: 60%;
+        }
+        .child-2 {
+            width: 80%;
+        }
+        .child-3 {
+            width: 70%;
+        }
+    }
+    .loading-4 {
+        height: 30px;
+        width: 40%;
+        animation: fade 2s ease-in-out .4s infinite;
+
+    }
+    .loading-5 {
+        width: 90%;
+        height: 40px;
+        margin-bottom: 10px;
+        animation: fade 2s ease-in-out .5s infinite;
+    }
+}

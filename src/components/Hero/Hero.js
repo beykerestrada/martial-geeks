@@ -1,5 +1,5 @@
 import './Hero.scss'
-import { Button } from "../Button/Button"
+import { PrimaryButton } from "../Button/PrimaryButton"
 
 const Hero = () => { 
     return (
@@ -23,7 +23,7 @@ const Hero = () => {
                 <p className="hero__p"> Equipamiento profesional para la practica de artes marciales</p>
                 <span className="hero__span"> Testeado por profesionales</span>
                 <div className="hero__btn-container">
-                    <Button text={"Comprar"}/>
+                    <PrimaryButton text={"Comprar"}/>
                 </div>
             </div>
         </div>
