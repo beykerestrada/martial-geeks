@@ -1,5 +1,5 @@
 import './ItemCount.scss'
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { SecondaryButton } from '../Button/SecondaryButton'
 
 
