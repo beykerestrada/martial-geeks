@@ -1,9 +1,8 @@
 .loadingCard{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     width: 30%;
-    height: 400px;
+    height: 300px;
     min-width: 250px;
     border-radius: 6px;
     @keyframes fade {
@@ -16,22 +15,28 @@
 
         }
     }
-    .loading-1, .loading-2, .loading-3, .loading-4, .loading-5 {
-        background-color: #f0ebeb;
-        
-    }
-    .loading-2, .loading-3, .loading-4, .loading-5 {
-        margin: 0 10px 5px 10px;
-    }
+
     .loading-1 {
         height: 150px;
         animation: fade 2s ease-in-out infinite;
-
+    }
+    .child { 
+        margin: 0 10px;
+        height: 20px;
+        animation: fade 2s ease-in-out .3s infinite;
     }
     .loading-2 {
-        width: 80%;
-        height: 30px;
-        animation: fade 2s ease-in-out .1s infinite;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        .child-1 {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            width: 80%;
+        }
+        .child-2 {
+            width: 60%;
+    }
+   
     }
     .loading-3 {
         height: 100px;
@@ -39,31 +44,16 @@
         display: flex;
         flex-direction: column;
         gap: 5px;
-        .child{
-            height: 20px;
-            animation: fade 2s ease-in-out .3s infinite;
 
-        }
-        .child-1 {
-            width: 60%;
-        }
-        .child-2 {
-            width: 80%;
         }
         .child-3 {
-            width: 70%;
+            margin-bottom: 20px;
+            height: 30px;
+            width: 30%;
         }
-    }
-    .loading-4 {
-        height: 30px;
-        width: 40%;
-        animation: fade 2s ease-in-out .4s infinite;
-
-    }
-    .loading-5 {
-        width: 90%;
-        height: 40px;
-        margin-bottom: 10px;
-        animation: fade 2s ease-in-out .5s infinite;
-    }
+        .child-4 {
+            width: 90%;
+            height: 40px;
+            border-radius: 6px;
+        }
 }

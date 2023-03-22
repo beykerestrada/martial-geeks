@@ -1,0 +1,29 @@
+@import url(../Button/SecondaryButton.scss);
+.categoryFilter-container {
+    display: flex;
+    margin: 30px 0;
+    align-items: center;
+    h4 {
+        font-size: 20px;
+        margin-right: 10px;
+        color: #636262;
+    }
+    .category__item {
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 600;
+        border: 1px solid #bebaba;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 3px;
+        padding: 3px;
+        margin: 0 5px;
+        color: #636262;
+        letter-spacing: 1px;
+        transition: all .4s;
+        &:hover {
+            background-color: rgba(179, 6, 6, 0.739);
+            color: white;
+        }
+    }
+}
