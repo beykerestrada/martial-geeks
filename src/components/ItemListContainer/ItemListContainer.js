@@ -34,7 +34,7 @@ const ItemListContainer = () => {
 
     return (
         <div className="list-container">
-            <h2 className="list-container__title">Productos</h2>
+            <h2 className="list-container__title">Tienda</h2>
             <hr/>
             {
                 loading 

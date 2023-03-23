@@ -1,13 +1,22 @@
 import './ItemDetail.scss'
-const ItemDetail = ({item}) => {
+import ItemCount from '../ItemCount/ItemCount'
+
+const ItemDetail = ({ item }) => {
 
     return (
-        <div>
-            <h2>{item.name}</h2>
-            <hr/>
-            <img src={item.img} alt={item.name}/>
-            <p>Precio: ${item.price}</p>
-            <p>{item.description}</p>
+        <div className='itemDetail'>
+            <div className='itemDetail__description'>
+                <div className='itemDetail__img'>
+                    <img src={item.img} alt={item.name} />
+                </div>
+                <hr />
+                <p>{item.description}</p>
+            </div>
+            <div className='itemDetail-summary'>
+                <h2>{item.name}</h2>
+                <p>Precio: <span>{item.price}</span> </p>
+                <ItemCount />
+            </div>
         </div>
     )
 }

@@ -28,13 +28,16 @@
 
     .product-img {
         width: 100%;
-        height: 150px;
+        height: 250px;  
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
 
         img {
-            width: 100%;
-            height: 100%;
+            object-fit: contain;
+            width: 90%;
+            height: 90%;
             transition: all .4s;
-
         }
 
     }
@@ -49,11 +52,20 @@
         font-weight: 600;
         p {
             display: inline-block;
-            border: 1px solid #bebaba;
-            border-radius: 3px;
-            padding: 3px;
-            color: #112124;
-            letter-spacing: 1px;
+            .card-link {
+                border: 1px solid #bebaba;
+                border-radius: 3px;
+                padding: 3px;
+                color: #112124;
+                letter-spacing: 1px;
+                text-align: center;
+                text-decoration: none;
+                margin-bottom: 5px;
+                &:hover {
+                    background-color: rgba(179, 6, 6, 0.739);
+                    color: white;
+                }
+            }
         }
     }
     .product-name {

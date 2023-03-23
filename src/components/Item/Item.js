@@ -10,7 +10,7 @@ const Item = ({ item }) => {
             <hr/>
             <div className='category-container'>
                 <p>
-                    <small>{item.category}</small>
+                    <small><Link className='card' to={`/category/${item.category}`} >{item.category}</Link></small>
                 </p>
             </div>
             <div className='product-name'>

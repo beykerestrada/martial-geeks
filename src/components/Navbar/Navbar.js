@@ -6,13 +6,13 @@ export const Navbar = () => {
     return (
         <header className="header">
             <div className="header__container">
-            <Link to={"/"} className='nav__logo'><img src='./img/logo.png' alt='' className="header__logo"/></Link>
+            <Link to={"/"} className='nav__logo'><img src='https://martial-geeks.s3.sa-east-1.amazonaws.com/logo.png' alt='' className="header__logo"/></Link>
 
                 
                 <nav className="nav">
-                    <Link to={"/"} className='nav__item'>Equipo</Link>
-                    <Link to={"/"} className='nav__item'>Protecciones</Link>
-                    <Link to={"/"} className='nav__item'>Vestuario</Link>
+                    <Link to={"/"} className='nav__item'>inicio</Link>
+                    <Link to={"/"} className='nav__item'>nosotros</Link>
+                    <Link to={"/"} className='nav__item'>tienda</Link>
                     <CartWidget/>
                 </nav>
                 
