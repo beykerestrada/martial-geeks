@@ -1,9 +1,9 @@
 import './ItemDetailContainer.scss'
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { pedirDatos } from "../../helpers/pedirDatos"
 import ItemDetail from "../ItemDetail/ItemDetail"
-
+import { productsDataBase } from '../../firebase/config'
+import { getDoc, doc } from 'firebase/firestore'
 
 
 const ItemDetailContainer = () => {
@@ -18,13 +18,18 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         setLoading(true)
 
-        pedirDatos()
-            .then((res) => {
-                setItem( res.find((prod) => prod.id === Number(productId)) )
+        const docRef = doc(productsDataBase, "products", productId)
+
+        getDoc(docRef)
+        .then((doc) => {
+            setItem({
+                id: doc.id,
+                ...doc.data()
             })
-            .finally(() => {
-                setLoading(false)
-            })
+        }) 
+        .finally(() => {
+            setLoading(false)
+        })
     }, [productId])
 
     return (

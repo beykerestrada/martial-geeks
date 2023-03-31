@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import './ItemListContainer.scss'
-import { pedirDatos } from '../../helpers/pedirDatos'
 import ItemList from '../ItemList/ItemList'
 import LoadingCardContainer from '../LoadingCardContainer/LoadingCardContainer'
 import { useParams } from 'react-router-dom'
 import CategoryFilter from '../CategoryFilter/CategoryFilter'
+import { collection, getDocs, query, where } from "firebase/firestore"
+import { productsDataBase } from "../../firebase/config"
 
 
 const ItemListContainer = () => {
@@ -15,21 +16,41 @@ const ItemListContainer = () => {
 
     useEffect(() => {
         setLoading(true)
-        pedirDatos()
-            .then((res) => {
-                if(productCategory) {
-                    setProductos(res.filter((prod) => prod.category === productCategory))
-                } else {
-                    setProductos(res)
+
+        // 1. Armar Referencia (Sincrónica)
+        const productsReference = collection(productsDataBase, "products")
+        const q = productCategory
+                    ? query(productsReference, where("category", "==", productCategory))
+                    : productsReference
+
+        // 2. Llamar a la referencia (Asincrónica)
+        
+        getDocs(q)
+        .then((res) => {
+            setProductos( res.docs.map((doc) => {
+                return {
+                    id: doc.id,
+                    ...doc.data()
                 }
-                setLoading(false)
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-            .finally(()=> {
-                setLoading(false)
-            })
+            }))
+        })
+        .finally(() => setLoading(false))
+
+        //pedirDatos()
+         //   .then((res) => {
+         //       if(productCategory) {
+         //           setProductos(res.filter((prod) => prod.category === productCategory))
+         //       } else {
+         //           setProductos(res)
+         //       }
+        //        setLoading(false)
+        //    })
+         //   .catch((error) => {
+         //       console.log(error)
+         //   })
+         //   .finally(()=> {
+         //       setLoading(false)
+         //   })
     }, [productCategory])
 
     return (
