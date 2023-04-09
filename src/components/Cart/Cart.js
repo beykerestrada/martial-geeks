@@ -2,10 +2,24 @@ import { useContext } from 'react'
 import './Cart.scss'
 import { CartContext } from '../../context/CartContext'
 import { CartItem } from '../CartItem/CartItem';
+import { Link } from 'react-router-dom';
 
 export const Cart = () => {
     const { cart, vaciarCarrito, removerItem, totalCarrito, totalCantidad } = useContext(CartContext)
 
+    if(cart.length === 0) {
+        return (
+            <div className="section-container">
+                <h2 className="section-container__title">Tu carrito está vacío</h2>
+                <hr />
+                <h3 className='goToShopMessage'>
+                    Agrega productos al carrito para verlos aquí 
+                </h3>
+                
+                <Link to="/" className='primaryButton btn-goToShop'>Visitar la tienda</Link>
+            </div>
+        )
+    }
     return (
         <div className="section-container">
             <h2 className="section-container__title">Termina tu compra</h2>

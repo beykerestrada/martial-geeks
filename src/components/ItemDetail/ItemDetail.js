@@ -3,12 +3,13 @@ import { useContext, useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import { CartContext } from '../../context/CartContext'
 import { Link } from 'react-router-dom'
+import { StockAlertRouter } from '../StockAlertRouter/StockAlertRouter'
 
 const ItemDetail = ({ item }) => {
     const { agregarAlCarrito, isInCart } = useContext(CartContext)
     const [cantidad, setCantidad] = useState(1)
 
-    const  handleAgregar = () => {
+    const handleAgregar = () => {
         const newItem = {
             ...item,
             cantidad
@@ -24,23 +25,30 @@ const ItemDetail = ({ item }) => {
                     <img src={item.img} alt={item.name} />
                 </div>
                 <hr />
+
                 <p>{item.description}</p>
             </div>
             <div className='itemDetail-summary'>
                 <h2>{item.name}</h2>
                 <p>Precio: <span>${item.price}</span> </p>
 
+                {item.stock <= 8 && item.stock > 0 && (
+                    <p className='stockAlert'> <strong>¡Última(s) {item.stock} unidad(es)! </strong> </p>
+                )}
+
                 {
-                    isInCart(item.id)
-                    ?   <Link to={"/cart"} className=' primaryButton btn-goToCart'>Terminar compra</Link>
-                    :   <ItemCount 
-                            max={item.stock}
-                            cantidad={cantidad}
-                            setCantidad={setCantidad}
-                            agregar={handleAgregar}
-                        />
+                    item.stock === 0
+                        ? <StockAlertRouter/>
+                        : isInCart(item.id)
+                            ? <Link to={"/cart"} className=' primaryButton btn-goToCart'>Terminar compra</Link>
+                            : <ItemCount
+                                max={item.stock}
+                                cantidad={cantidad}
+                                setCantidad={setCantidad}
+                                agregar={handleAgregar}
+                            />
                 }
-                
+
             </div>
         </div>
     )

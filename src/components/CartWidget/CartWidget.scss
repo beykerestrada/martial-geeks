@@ -1,7 +1,14 @@
 
-.cart-container {
+.cartWidget-container {
     position: relative;
     margin-left: 16px;
+    visibility: hidden;
+    scale: 0;
+    transition: all .7s;
+    &-active {
+        visibility: visible;
+        scale: 1;
+    }
     .cartWidget {
         border: none;
         background-color: transparent;

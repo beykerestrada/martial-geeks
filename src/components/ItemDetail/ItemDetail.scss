@@ -22,6 +22,7 @@
             color: #6a6868;
             font-weight: 500;
         }
+        
     }
     .itemDetail-summary {
         position: sticky;
@@ -46,9 +47,15 @@
             font-size: 20px;
             span {
                 font-weight: 600;
-                color: #E75353;
+                color: #14ac5d;
             }
         }
+        .stockAlert {
+            font-size: 14px;
+            margin: 10px 0;
+            color: #E75353;
+        }
+        
         .itemCount {
             margin: 20px 0 5px 0;
             padding: 0;

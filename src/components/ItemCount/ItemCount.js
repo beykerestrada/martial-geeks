@@ -23,7 +23,7 @@ const ItemCount = ({max,  cantidad,  setCantidad, agregar}) => {
                 <div>
                     <p>{cantidad}</p>
                 </div>
-                <button className='btn-counter btn-counter__suma' onClick={handleSumarItem} >+</button>
+                <button className='btn-counter btn-counter__suma' onClick={handleSumarItem} disabled={cantidad >= max}>+</button>
             </div>
             <button className='secondaryButton' onClick={agregar} >Agregar al carrito</button>
         </div>
