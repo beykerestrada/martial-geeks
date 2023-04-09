@@ -1,5 +1,9 @@
 {
     "oneDarkPro.vivid": true,
     "oneDarkPro.bold": true,
-    "oneDarkPro.editorTheme": "One Dark Pro Darker"
+    "oneDarkPro.editorTheme": "One Dark Pro Darker",
+    "liveServer.settings.CustomBrowser": "chrome",
+    "livePreview.customExternalBrowser": "Chrome",
+    "liveServer.settings.AdvanceCustomBrowserCmdLine": "chrome",
+    "phpserver.browser": "google-chrome"
 }

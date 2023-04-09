@@ -57,12 +57,12 @@ const ItemListContainer = () => {
         <div className="list-container">
             <h2 className="list-container__title">Tienda</h2>
             <hr/>
+            <CategoryFilter/>
             {
                 loading 
                 ? <LoadingCardContainer/> 
                 : 
                 <div>
-                    <CategoryFilter/>
                     <ItemList items={productos}/>
                 </div>
             }

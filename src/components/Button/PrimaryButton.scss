@@ -7,10 +7,11 @@
     font-size: 20px;
     font-weight: 700;
     text-transform: uppercase;
-    background-color: #FF3130;
+    background-color: #1F7A8C;
     box-shadow: 0 7px 7px #aba9a9;
     transition: all .4s;
     &:hover {
-    background-color: #b90404;
+        background-color: #E54B4B;
+        color: #fff;
     }
 }

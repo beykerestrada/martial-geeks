@@ -1,35 +1,31 @@
 import './ItemCount.scss'
-import { useState } from "react"
-import { SecondaryButton } from '../Button/SecondaryButton'
 
 
-const ItemCount = () => {
-    const [counter, setCounter] = useState(0)
 
-    const sumarItem = () => {
-        setCounter(counter + 1)
+const ItemCount = ({max,  cantidad,  setCantidad, agregar}) => {
+    
+
+    const handleSumarItem = () => {
+        cantidad < max && setCantidad(cantidad + 1)
     }
 
-    const restarItem = () => {
-        if (counter > 1) {
-            setCounter(counter - 1)
-        }
+    const handleRestarItem = () => {
+        
+        cantidad > 1 && setCantidad(cantidad - 1)
+        
     }
-
-
-
 
 
     return (
         <div className='itemCount'>
             <div className="counter-container">
-                <button className='btn-counter btn-counter__resta' onClick={restarItem} >-</button>
+                <button className='btn-counter btn-counter__resta' onClick={handleRestarItem} >-</button>
                 <div>
-                    <p>{counter}</p>
+                    <p>{cantidad}</p>
                 </div>
-                <button className='btn-counter btn-counter__suma' onClick={sumarItem} >+</button>
+                <button className='btn-counter btn-counter__suma' onClick={handleSumarItem} >+</button>
             </div>
-            <SecondaryButton text={"Añadir al carrito"}/>
+            <button className='secondaryButton' onClick={agregar} >Agregar al carrito</button>
         </div>
     )
 }

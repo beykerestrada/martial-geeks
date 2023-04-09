@@ -2,6 +2,7 @@ import './CartWidget.scss'
 import { MdShoppingCart } from "react-icons/md";
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
 
 export const CartWidget = () => {
 
@@ -9,11 +10,11 @@ export const CartWidget = () => {
      
      return (
         <div className='cart-container'>
-            <button>
+            <Link className='cartWidget' to="/cart">
             <MdShoppingCart className='cartWidget'/>
-            </button>
+            </Link>
             <div className='cart__indicator'>
-            <span className='cart__indicator__span'>{totalCantidad}</span>
+            <span className='cart__indicator__span'>{totalCantidad()}</span>
             </div>
         </div>
      )
