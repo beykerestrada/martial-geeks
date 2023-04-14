@@ -5,7 +5,7 @@ import LoadingCardContainer from '../LoadingCardContainer/LoadingCardContainer'
 import { useParams } from 'react-router-dom'
 import CategoryFilter from '../CategoryFilter/CategoryFilter'
 import { collection, getDocs, query, where } from "firebase/firestore"
-import { productsDataBase } from "../../firebase/config"
+import { dataBase } from "../../firebase/config"
 
 
 const ItemListContainer = () => {
@@ -17,13 +17,13 @@ const ItemListContainer = () => {
     useEffect(() => {
         setLoading(true)
 
-        // 1. Armar Referencia (Sincrónica)
-        const productsReference = collection(productsDataBase, "products")
+        // 1. Armar Referencia de Firebase(Sincrónica)
+        const productsReference = collection(dataBase, "products")
         const q = productCategory
                     ? query(productsReference, where("category", "==", productCategory))
                     : productsReference
 
-        // 2. Llamar a la referencia (Asincrónica)
+        // 2. Llamar a la referencia de Firebase (Asincrónica)
         
         getDocs(q)
         .then((res) => {
@@ -36,21 +36,6 @@ const ItemListContainer = () => {
         })
         .finally(() => setLoading(false))
 
-        //pedirDatos()
-         //   .then((res) => {
-         //       if(productCategory) {
-         //           setProductos(res.filter((prod) => prod.category === productCategory))
-         //       } else {
-         //           setProductos(res)
-         //       }
-        //        setLoading(false)
-        //    })
-         //   .catch((error) => {
-         //       console.log(error)
-         //   })
-         //   .finally(()=> {
-         //       setLoading(false)
-         //   })
     }, [productCategory])
 
     return (

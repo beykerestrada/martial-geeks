@@ -2,7 +2,7 @@ import './ItemDetailContainer.scss'
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ItemDetail from "../ItemDetail/ItemDetail"
-import { productsDataBase } from '../../firebase/config'
+import { dataBase } from '../../firebase/config'
 import { getDoc, doc } from 'firebase/firestore'
 
 
@@ -15,7 +15,7 @@ const ItemDetailContainer = () => {
     useEffect(() => {
         setLoading(true)
 
-        const docRef = doc(productsDataBase, "products", productId)
+        const docRef = doc(dataBase, "products", productId)
 
         getDoc(docRef)
         .then((doc) => {

@@ -3,22 +3,13 @@ import './Cart.scss'
 import { CartContext } from '../../context/CartContext'
 import { CartItem } from '../CartItem/CartItem';
 import { Link } from 'react-router-dom';
+import { EmptyCartRouter } from '../EmptyCartRouter/EmptyCartRouter';
 
 export const Cart = () => {
     const { cart, vaciarCarrito, removerItem, totalCarrito, totalCantidad } = useContext(CartContext)
 
     if(cart.length === 0) {
-        return (
-            <div className="section-container">
-                <h2 className="section-container__title">Tu carrito está vacío</h2>
-                <hr />
-                <h3 className='goToShopMessage'>
-                    Agrega productos al carrito para verlos aquí 
-                </h3>
-                
-                <Link to="/" className='primaryButton btn-goToShop'>Visitar la tienda</Link>
-            </div>
-        )
+        return <EmptyCartRouter/>
     }
     return (
         <div className="section-container">
@@ -44,7 +35,7 @@ export const Cart = () => {
                     </div>
 
                     <div className='summaryButtons'>
-                        <button className=' primaryButton btn-checkout'>Pagar</button>
+                        <Link to={"/checkout"} className=' primaryButton btn-checkout'>Pagar</Link>
                         <button onClick={vaciarCarrito} className='btn-vaciarCarrito'>Vaciar carrito</button>
                     </div>
                 </div>

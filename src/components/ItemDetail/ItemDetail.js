@@ -40,7 +40,11 @@ const ItemDetail = ({ item }) => {
                     item.stock === 0
                         ? <StockAlertRouter/>
                         : isInCart(item.id)
-                            ? <Link to={"/cart"} className=' primaryButton btn-goToCart'>Terminar compra</Link>
+                            ? 
+                            <div className='cartRouter'>
+                                <Link to={"/cart"} className=' primaryButton btn-goToCart'>Ir al Carrito</Link>
+                                <Link to={"/"} className=' secondaryButton btn-goToCart btn-goToShop'>seguir comprando</Link>
+                            </div> 
                             : <ItemCount
                                 max={item.stock}
                                 cantidad={cantidad}
