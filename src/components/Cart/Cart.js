@@ -5,12 +5,17 @@ import { CartItem } from '../CartItem/CartItem';
 import { Link } from 'react-router-dom';
 import { EmptyCartRouter } from '../EmptyCartRouter/EmptyCartRouter';
 
+/* import { Login } from '../Login/Login'; */
+
 export const Cart = () => {
+    
     const { cart, vaciarCarrito, removerItem, totalCarrito, totalCantidad } = useContext(CartContext)
+
 
     if(cart.length === 0) {
         return <EmptyCartRouter/>
     }
+    
     return (
         <div className="section-container">
             <h2 className="section-container__title">Termina tu compra</h2>

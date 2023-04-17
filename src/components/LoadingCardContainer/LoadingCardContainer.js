@@ -1,4 +1,4 @@
-import LoadingCard from '../../LoadingCard/LoadingCard'
+import LoadingCard from '../LoadingCard/LoadingCard'
 import './LoadingCardContainer.scss'
 
 const LoadingCardContainer = () => {

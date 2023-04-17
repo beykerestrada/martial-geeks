@@ -1,0 +1,33 @@
+.section-contianer__subtitle {
+    font-size: 25px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.orderSummary-container {
+    width: 80%;
+    margin: 40px auto;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 20px;
+    h3 {
+        font-size: 20px;
+    }
+    hr {
+        margin: 10px 0 30px 0;
+    }
+    p {
+        font-size: 18px;
+        line-height: 2;
+        span {
+            font-weight: 700;
+        }
+    }
+    .orderSummary-total {
+        font-size: 25px;
+        text-align: right;
+        span {
+            color: #14ac5d;
+        }
+    }
+}

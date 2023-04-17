@@ -5,11 +5,15 @@
 }
 
 .header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
     background-color: #e3e3e3;
     box-shadow: 0 3px 16px #494848;
     .header__container {
-        max-width: 900px;
+        max-width: 90%;
         margin: 0 auto;
         padding: 0;
         display: flex;
@@ -35,9 +39,24 @@
                 border: none;
                 background-color: transparent;
                 transition: all .4s;
+                
+            }
+            .nav__option {
                 &:hover {
                     background-color: #FF3130;
                     color: white;
+                }
+            }
+            .userWidget {
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                margin-left: 10px;
+                &::before {
+                    content: "";
+                    height: 20px;
+                    width: 2px;
+                    background-color: #c9c4c4;
                 }
             }
         }

@@ -7,7 +7,7 @@ export const CartProvider = ({ children }) => {
 
     // Funcion para setear el estado del carrito
     const [cart, setCart] = useState([])
-    console.log(cart)
+
 
     const agregarAlCarrito = (item) => {
         setCart([...cart, item])
