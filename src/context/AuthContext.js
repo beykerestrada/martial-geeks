@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
 
     const logout = () => { 
         signOut(auth)
-        return <Navigate to="/login"/>
+        .then(<Navigate to="/login"/>)
     }
     useEffect(() =>{
         onAuthStateChanged(auth, (currentUser) => {
