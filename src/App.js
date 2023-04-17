@@ -10,7 +10,7 @@ import { Login } from "./components/Login/Login";
 import { Register } from "./components/Register/Register";
 import { AuthProvider } from "./context/AuthContext";
 import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
-
+import { Account } from "./components/Account/Account";
 
 function App() {
 
@@ -28,7 +28,16 @@ function App() {
                 <Cart />
               </PrivateRoute>
             } />
-            <Route path='/checkout' element={<Checkout />} />
+            <Route path='/checkout' element={
+              <PrivateRoute>
+                <Checkout />
+              </PrivateRoute>
+            } />
+            <Route path='/cuenta' element={
+              <PrivateRoute>
+                <Account />
+              </PrivateRoute>
+            } />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route path='*' element={

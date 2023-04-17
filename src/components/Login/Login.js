@@ -7,7 +7,7 @@ import { useNavigate, Link } from "react-router-dom"
 export const Login = () => {
     const [user, setUser] = useState({
         email: "",
-        password: ""
+        password: "",
     })
 
     const { login } = useAuth()
@@ -23,7 +23,9 @@ export const Login = () => {
         e.preventDefault()
         setError('')
         try {
-            await login(user.email, user.password)
+            const token = await login(user.email, user.password)
+            sessionStorage.setItem('token', token)
+            login(user.email, user.password)
             navigate('/cart')
         } catch (error) {
             setError(error.message)
@@ -48,6 +50,7 @@ export const Login = () => {
                             placeholder="email@dominio.com"
                             onChange={handleInputChange}
                             name="email"
+                            required
                         />
                     </div>
                     <div className="input-container">
@@ -58,6 +61,7 @@ export const Login = () => {
                             placeholder="******"
                             onChange={handleInputChange}
                             name="password"
+                            required
                         />
                     </div>
                     <button className="formButton" type="submit">Iniciar sesión</button>

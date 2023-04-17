@@ -7,25 +7,37 @@
 .orderSummary-container {
     width: 80%;
     margin: 40px auto;
-    border: 1px solid;
+    border: 1px solid #03030367;
     border-radius: 10px;
     padding: 20px;
     h3 {
-        font-size: 20px;
-    }
-    hr {
-        margin: 10px 0 30px 0;
-    }
-    p {
         font-size: 18px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #03030367;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 16px;
         line-height: 2;
         span {
             font-weight: 700;
         }
     }
+    .products__p {
+        padding-top: 10px;
+        border-top: 1px solid #03030367;
+        margin-top: 20px;
+    }
+    .orderSummaryProducts-container {
+        display: flex;
+        align-items: center;
+        width: 80%;
+        height: fit-content;
+    }
     .orderSummary-total {
         font-size: 25px;
-        text-align: right;
+        margin-bottom: 20px;
         span {
             color: #14ac5d;
         }

@@ -19,7 +19,8 @@ export const Checkout = () => {
         nombre: "",
         apellido: "",
         direccion: "",
-        email: ""
+        email: "",
+        telefono: ""
     })
 
     const handleInputChange = (e) => {
@@ -64,7 +65,7 @@ export const Checkout = () => {
             const { id } = await addDoc(orderReference, order)
             setOrderId(id)
         } else {
-            alert("Uno o más productos se ecuentran agotados: " + outOfStock.map(i => i.name).join(', '))
+            alert("Uno o más productos se ecuentran: " + outOfStock.map(i => i.name).join(', '))
         }
         setLoading(false)
         vaciarCarrito()
@@ -97,28 +98,6 @@ export const Checkout = () => {
                     <hr />
                 </div>
                 <div className="input-container">
-                    <label className="label" htmlFor="nombre">Nombre</label>
-                    <input
-                        value={values.nombre}
-                        type="text"
-                        className="input-text"
-                        placeholder="John"
-                        onChange={handleInputChange}
-                        name="nombre"
-                    />
-                </div>
-                <div className="input-container">
-                    <label className="label" htmlFor="apellido">Apellido</label>
-                    <input
-                        value={values.apellido}
-                        type="text"
-                        className="input-text"
-                        placeholder="Doe"
-                        onChange={handleInputChange}
-                        name="apellido"
-                    />
-                </div>
-                <div className="input-container">
                     <label className="label" htmlFor="direccion">Direccion de envío</label>
                     <input
                         value={values.direccion}
@@ -129,7 +108,17 @@ export const Checkout = () => {
                         name="direccion"
                     />
                 </div>
-
+                <div className="input-container">
+                    <label className="label" htmlFor="telefono">Teléfono</label>
+                    <input
+                        value={values.telefono}
+                        type="tel"
+                        className="input-text"
+                        placeholder=""
+                        onChange={handleInputChange}
+                        name="telefono"
+                    />
+                </div>
                 <button className="formButton checkoutButton" type="submit">Aceptar</button>
             </form>
         </div>

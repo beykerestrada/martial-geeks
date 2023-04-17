@@ -27,27 +27,28 @@ export const OrderSummary = ({ orderId }) => {
 
   return (
     <div className="section-container">
-      <h2 className="section-container__title">Detalles de la Orden</h2>
+      <h2 className="section-container__title">Compra finalizada</h2>
       <hr />
       <h3 className="section-contianer__subtitle">¡Felicidades! Tu compra se realizó de manera exitosa</h3>
 
       <div className="orderSummary-container">
-        <h3>Guarda estos detalles:</h3>
-        <hr />
+        <h3>Detalles de tu compra:</h3>
+
         <p><strong>Número de orden:</strong> {orderId}</p>
         <p><strong>Nombre:</strong> {order.buyer.nombre} {order.buyer.apellido}</p>
         <p><strong>Dirección de envío:</strong> {order.buyer.direccion}</p>
-        <p><strong>Productos comprados:</strong></p>
-        <ul>
+        <p><strong>Fecha de compra:</strong> {new Date().toLocaleDateString()}</p>
+        <p className="products__p"><strong>Productos comprados:</strong></p>
+        
+        <div className="orderSummaryProducts-container">
           {order.products.map((item) =>
             <OrderSummaryItem
               key={item.id}
               item={item}
             />
-          )
-          }
-        </ul>
-        <h4 className="orderSummary-total"><strong>Total de la orden:</strong> <span>${order.total}</span></h4>
+          )}
+        </div>
+        <h4 className="orderSummary-total"><strong>Total de la compra:</strong> <span>${order.total}</span></h4>
       </div>
     </div>
   );

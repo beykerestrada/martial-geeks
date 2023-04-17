@@ -14,22 +14,25 @@
     .logoutButton {
         border: none;
         background-color: transparent;
-       
-        .logOut {
-            font-size: 18px;
-            font-weight: 900;
-            color: #232323;
-            cursor: pointer;
-            transition: all .4s;
-            &:hover {
-                color: #55cfc9
+        align-self: center;
+        &:hover {
+            .logOut, .user .user__p {
+            color: #55cfc9
+
             }
         }
+        .logOut {
+            font-size: 20px;
+            font-weight: 900;
+            color: #232323;
+            padding-top: 3px;
+            cursor: pointer;
+            transition: all .4s;
+            
+        }
         .user {
+            padding-top: 0;
             font-size: 16px;
         }
-    }
-    small {
-        font-size: 8px;
     }
 }

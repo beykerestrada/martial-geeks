@@ -1,11 +1,13 @@
+import "./OrderSummaryItem.scss"
+
 export const OrderSummaryItem = ({ item }) => {
 
     return (
-        <div key={item.id} className='cartItem-container'>
-            <div className='cartItem__img'>
+        <div key={item.id} className='orderSummaryItem-container'>
+            <div className='orderSummaryItem__img'>
                 <img src={item.img} alt={item.name} />
             </div>
-            <div className='cartItem__summary'>
+            <div className='orderSummaryItem__summary'>
                 <h4>{item.name}</h4>
                 <div className='small-container'>
                     <small>Precio: ${item.price}</small>

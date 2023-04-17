@@ -18,12 +18,10 @@ export const Navbar = () => {
                     <Link to={"/"} className='nav__item nav__option'>tienda</Link>
                     <CartWidget />
                     <div className=' nav__item userWidget'>
-                        <LoginOrSignupButton/>
-                        <LogoutButton />
+                            <LoginOrSignupButton />
+                            <LogoutButton />
                     </div>
-
                 </nav>
-
             </div>
         </header>
     )

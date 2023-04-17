@@ -12,6 +12,7 @@
     z-index: 1000;
     background-color: #e3e3e3;
     box-shadow: 0 3px 16px #494848;
+    flex-direction: column;
     .header__container {
         max-width: 90%;
         margin: 0 auto;
@@ -52,16 +53,29 @@
                 align-items: center;
                 justify-content: space-evenly;
                 margin-left: 10px;
+                text-decoration: none;
                 &::before {
                     content: "";
                     height: 20px;
                     width: 2px;
                     background-color: #c9c4c4;
                 }
+                .userIcon-container {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    text-decoration: none;
+                    p {
+                        margin: auto 0;
+                        display: inline;
+                        font-size: 10px;
+                        text-decoration: none;
+                        color: #232323;
+                    }
+                }
             }
         }
     }
-    
 }
 
 

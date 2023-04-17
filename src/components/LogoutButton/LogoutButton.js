@@ -1,5 +1,5 @@
 import './logoutButton.scss'
-import { MdOutlineLogout } from "react-icons/md";
+import { FaSignOutAlt } from "react-icons/fa"
 import { useAuth } from "../../context/AuthContext";
 
 
@@ -10,7 +10,7 @@ export const LogoutButton = () => {
         <div className={`logoutButton-container ${user ? 'logoutButton-container-active' : ''}`}>
             <acronym title="Cerrar sesión">
                 <button className="logoutButton" onClick={() => logout()}>
-                    <MdOutlineLogout className='logOut' />
+                    <FaSignOutAlt className='logOut' />
                 </button>
             </acronym>
         </div>

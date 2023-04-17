@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
         .then(async (userCredential) => {
             const user = userCredential.user;
             await updateProfile(user, { displayName: displayName });
-            return setUser(user);
+            return setUser(true);
         })
         .catch((error) => console.log(error))
     }
