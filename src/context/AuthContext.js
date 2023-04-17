@@ -7,6 +7,7 @@ import {
     updateProfile
 } from "firebase/auth";
 import { auth } from "../firebase/config";
+import { Navigate } from "react-router-dom";
 
 export const AuthContext = createContext()
 export const useAuth = () => {
@@ -34,7 +35,7 @@ export const AuthProvider = ({ children }) => {
 
     const logout = () => { 
         signOut(auth)
-        window.location.href = "/login";
+        return <Navigate to="/login"/>
     }
     useEffect(() =>{
         onAuthStateChanged(auth, (currentUser) => {
