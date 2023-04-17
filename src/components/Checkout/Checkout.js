@@ -6,20 +6,19 @@ import { dataBase } from "../../firebase/config"
 import { collection, documentId, where, getDocs, query, writeBatch, addDoc } from "firebase/firestore"
 import LoadingCardContainer from "../LoadingCardContainer/LoadingCardContainer"
 import { OrderSummary } from "../OrderSummary/OrderSummary"
+import { useAuth } from "../../context/AuthContext"
 
 
 
 
 export const Checkout = () => {
-    
+    const { user } = useAuth()
     const [loading, setLoading] = useState(false)
     const [orderId, setOrderId] = useState(null)
     const { cart, totalCarrito, vaciarCarrito } = useContext(CartContext)
     const [values, setValues] = useState({
-        nombre: "",
-        apellido: "",
+        nombre: user.displayName,
         direccion: "",
-        email: "",
         telefono: ""
     })
 
@@ -34,11 +33,11 @@ export const Checkout = () => {
         e.preventDefault()
         setLoading(true)
         const order = {
-
+            uid: user.uid,
             buyer: values,
             products: cart,
             total: totalCarrito(),
-            date: new Date()
+            date: new Date().toLocaleDateString()
         }
 
         const batch = writeBatch(dataBase)

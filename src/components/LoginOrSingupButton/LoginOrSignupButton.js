@@ -7,7 +7,7 @@ export const LoginOrSignupButton = () => {
     return (
         <div className={"logoutButton-container logoutButton-container-active"}>
             <acronym className={"acronimo"} title={user ? "Ir al perfil" : "Ingreso / Registro"}>
-                <Link to={user ? "/" : "/login"} className="logoutButton userIcon-container" >
+                <Link to={user ? "/cuenta" : "/login"} className="logoutButton userIcon-container" >
                     <FaUserAlt className={`logOut user`} />
                     <p className="user__p">{!user ? "Ingresar" : "Cuenta"}</p>
                 </Link>

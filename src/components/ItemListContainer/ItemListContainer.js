@@ -22,8 +22,6 @@ const ItemListContainer = () => {
         const q = productCategory
                     ? query(productsReference, where("category", "==", productCategory))
                     : productsReference
-
-        // 2. Llamar a la referencia de Firebase (Asincrónica)
         
         getDocs(q)
         .then((res) => {

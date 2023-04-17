@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 import { dataBase } from "../../firebase/config";
 import "./OrderSummary.scss"
 import { OrderSummaryItem } from "../OrderSummaryItem/OrderSummaryItem"
+import { useAuth } from "../../context/AuthContext";
 
 export const OrderSummary = ({ orderId }) => {
   const [order, setOrder] = useState(null);
-
+  const { user } = useAuth()
   useEffect(() => {
     const getOrder = async () => {
       const orderDoc = doc(dataBase, "orders", orderId);
@@ -35,7 +36,8 @@ export const OrderSummary = ({ orderId }) => {
         <h3>Detalles de tu compra:</h3>
 
         <p><strong>Número de orden:</strong> {orderId}</p>
-        <p><strong>Nombre:</strong> {order.buyer.nombre} {order.buyer.apellido}</p>
+        <p><strong>Nombre:</strong> {user.displayName}</p>
+        <p><strong>Teléfono:</strong> {order.buyer.telefono}</p>
         <p><strong>Dirección de envío:</strong> {order.buyer.direccion}</p>
         <p><strong>Fecha de compra:</strong> {new Date().toLocaleDateString()}</p>
         <p className="products__p"><strong>Productos comprados:</strong></p>
