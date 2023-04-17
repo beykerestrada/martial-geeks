@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
         .then(async (userCredential) => {
             const user = userCredential.user;
             await updateProfile(user, { displayName: displayName });
-            return setUser(true);
+            return setUser(user);
         })
         .catch((error) => console.log(error))
     }
@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
 
     const logout = () => { 
         signOut(auth)
-        .then(<Navigate to="/login"/>)
+        .then(() => <Navigate to="/login"/>)
     }
     useEffect(() =>{
         onAuthStateChanged(auth, (currentUser) => {
