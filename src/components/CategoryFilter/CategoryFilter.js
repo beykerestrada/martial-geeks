@@ -9,7 +9,7 @@ const CategoryFilter = () => {
                 <h4>Categorías:</h4>
             </div>
             <div className="categoryFilter-links">
-                <Link to={"/"} className='category__item'>ver todo</Link>
+                <Link to={"/tienda"} className='category__item'>ver todo</Link>
                 <Link to={"/category/equipamiento"} className='category__item'>equipamiento</Link>
                 <Link to={"/category/protecciones"} className='category__item'>protecciones</Link>
                 <Link to={"/category/vestuario"} className='category__item'>vestuario</Link>
