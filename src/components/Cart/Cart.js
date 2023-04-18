@@ -7,14 +7,15 @@ import { EmptyCartRouter } from '../EmptyCartRouter/EmptyCartRouter';
 
 
 export const Cart = () => {
-    
+
     const { cart, vaciarCarrito, removerItem, totalCarrito, totalCantidad } = useContext(CartContext)
     const estandarPesosChilenos = Intl.NumberFormat('es-CL');
-    
-    if(cart.length === 0) {
-        return <EmptyCartRouter/>
+
+
+    if (cart.length === 0) {
+        return <EmptyCartRouter />
     }
-    
+
     return (
         <div className="section-container">
             <h2 className="section-container__title">Termina tu compra</h2>
@@ -33,8 +34,8 @@ export const Cart = () => {
                 <div className='cartSummary'>
                     <div className='summaryText'>
                         <h3 className='summaryTitle'>Revisa el detalle de tu compra</h3>
-                        <hr/>
-                        <h3>Productos: { totalCantidad()}</h3>
+                        <hr />
+                        <h3>Productos: {totalCantidad()}</h3>
                         <h3>Total a pagar: <span>${estandarPesosChilenos.format(totalCarrito())}</span> </h3>
                     </div>
 

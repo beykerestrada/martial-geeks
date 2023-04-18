@@ -7,7 +7,7 @@ const Order = ({ item, id }) => {
     return (
         <div className='order-card'>
             <div className="order-card-products-container">
-                <p className="order-products"><ProductsList products={products} /></p>
+                <ProductsList products={products} />
             </div>
             <div className="order-card-summary">
                 <p className="order-number"><strong>Numero de órden:</strong> {id} </p>
