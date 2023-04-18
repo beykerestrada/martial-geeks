@@ -4,8 +4,7 @@ import { useParams } from "react-router-dom"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { dataBase } from '../../firebase/config'
 import { getDoc, doc } from 'firebase/firestore'
-import LoadingCardContainer from '../LoadingCardContainer/LoadingCardContainer'
-
+import { Loading } from '../Loading/Loading'
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState(null)
@@ -19,24 +18,25 @@ const ItemDetailContainer = () => {
         const docRef = doc(dataBase, "products", productId)
 
         getDoc(docRef)
-        .then((doc) => {
-            setItem({
-                id: doc.id,
-                ...doc.data()
+            .then((doc) => {
+                setItem({
+                    id: doc.id,
+                    ...doc.data()
+                })
             })
-        }) 
-        .finally(() => {
-            setLoading(false)
-        })
+            .finally(() => {
+                setLoading(false)
+            })
     }, [productId])
+
+    if(loading){
+        return <Loading/>
+    }
 
     return (
         <div className="itemDetailContainer">
-            {
-                loading
-                    ? <LoadingCardContainer/>
-                    : <ItemDetail item={item}/>
-            }
+            <ItemDetail item={item} />
+
         </div>
     )
 }

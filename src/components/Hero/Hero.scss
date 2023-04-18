@@ -1,38 +1,166 @@
-.hero-container {
-    min-height: 100vh;
+.hero-bg {
     width: 100%;
-    .hero {
-        max-width: 900px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .hero__text {
-            width: 50%;
-            .hero__h2 {
-                span {
-                    display: block;
+    height: fit-content;
+    background: rgb(210, 204, 204);
+    background: radial-gradient(circle, rgb(236, 231, 231) 19%, rgb(180, 178, 178) 100%);
+
+    .hero-container {
+        width: 100%;
+        min-height: 90vh;
+        background-image: url("https://martial-geeks.s3.sa-east-1.amazonaws.com/background-crack.png");
+        background-position: left;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+
+        .hero {
+            max-width: 90%;
+            margin: 0 auto;
+            padding-top: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .hero__text {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-content: center;
+
+                .hero__h2 {
+                    span {
+                        display: block;
+                    }
+
+                    font-size: 60px;
                 }
-            font-size: 80px;
-        }
-        .hero__p {
-            font-size: 30px;
-        }
-        .hero__span {
-            font-size: 25px;
-        }
-        .hero__btn-container {
-            margin-top: 30px;
-        }
-        }
-        
-        .hero__img {
-            width: 50%;
-            height: 100%;
-            position: relative;
-            img {
-                transform: translate(-40%, 0%) scale(1.6);
+
+                .hero__p {
+                    font-size: 25px;
+                    line-height: 1.2;
+                    margin: 10px 0;
+                }
+
+                .hero__span {
+                    font-size: 22px;
+                    margin-bottom: 20px;
+                }
+
+                .hero__btn-container {
+                    margin-top: 30px;
+                }
+            }
+
+            .hero__img {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 50%;
+                padding: 1%;
+
+                img {
+                    height: 80%;
+                    width: 80%;
+                    filter: drop-shadow(-10px 25px 17px #656464);
+                }
             }
         }
+        .middle-title {
+            height: 80px;
+            margin: 40px auto;
+            text-align: center;
+            h2 {
+                font-size: 30px;
+            }
+        }
+        .banner-container {
+            width: 100%;
+            height: 400px;
+            margin-top: 200px;
+            background-color: #2a2929;
+            box-shadow: 0 3px 16px #494848;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #dad7d7;
+            .banner-text {
+                width: 50%;
+                height: 100%;
+                display: flex;
+                padding: 40px 90px 40px 40px;
+                flex-direction: column;
+                justify-content: center;
+                h2 {
+                    font-size: 40px;
+                    line-height: 2;
+                    color: #d14c4c;
+                    margin-bottom: 20px;
+                }
+                h4 {
+                    font-size: 20px;
+                    margin-bottom: 20px;
+                }
+                p {
+                    font-size: 17px;
+                    margin: 10px 0;
+                    line-height: 1.5;
+                }
+            }
+            .banner-img {
+                width: 40%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                z-index: 10;
+                .circle {
+                    img {
+                        width: 100%;
+                        height: 160%;
+                        position: absolute;
+                        top: -240px;
+                        right: 50px;
+                        filter: drop-shadow(-10px 25px 10px #1b1a1a94);
+                    }
+                }
+            }
+        }
+        .cta-section {
+            display: flex;
+            align-items: center;
+            height: 600px;
+            .cta-img {
+                width: 40%;
+                position: relative;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                img {
+                    height: 80%;
+                    filter: drop-shadow(-10px 25px 10px #1b1a1a94);
+                }
+            }
+            .cta-text {
+                width: 60%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                h2 {
+                    font-size: 50px;
+                    margin: 50px auto;
+                }
+                
+            }
+        }
+    }
+}
+.cta-btn {
+    padding: 20px;
+    background-color: #d14c4c;
+    text-decoration: none;
+    &:hover {
+        background-color: #FF3130;
     }
 }

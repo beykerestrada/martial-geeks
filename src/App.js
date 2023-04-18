@@ -11,6 +11,8 @@ import { Register } from "./components/Register/Register";
 import { AuthProvider } from "./context/AuthContext";
 import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
 import { Account } from "./components/Account/Account";
+import Hero from "./components/Hero/Hero";
+import { Footer } from "./components/Footer/Footer";
 
 function App() {
 
@@ -20,7 +22,8 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <Routes>
-            <Route path='/' element={<ItemListContainer />} />
+            <Route path='/tienda' element={<ItemListContainer />} />
+            <Route path='/' element={<Hero />} />
             <Route path='/category/:productCategory' element={<ItemListContainer />} />
             <Route path='/item/:productId' element={<ItemDetailContainer />} />
             <Route path='/cart' element={
@@ -51,6 +54,7 @@ function App() {
               </div>}
             />
           </Routes>
+          <Footer />
         </BrowserRouter>
       </CartProvider>
     </AuthProvider>

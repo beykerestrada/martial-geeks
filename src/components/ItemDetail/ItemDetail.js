@@ -8,7 +8,7 @@ import { StockAlertRouter } from '../StockAlertRouter/StockAlertRouter'
 const ItemDetail = ({ item }) => {
     const { agregarAlCarrito, isInCart } = useContext(CartContext)
     const [cantidad, setCantidad] = useState(1)
-
+    const estandarPesosChilenos = Intl.NumberFormat('es-CL');
     const handleAgregar = () => {
         const newItem = {
             ...item,
@@ -30,7 +30,7 @@ const ItemDetail = ({ item }) => {
             </div>
             <div className='itemDetail-summary'>
                 <h2>{item.name}</h2>
-                <p>Precio: <span>${item.price}</span> </p>
+                <p>Precio: <span>${estandarPesosChilenos.format(item.price * cantidad)}</span> </p>
 
                 {item.stock <= 8 && item.stock > 0 && (
                     <p className='stockAlert'> <strong>¡Última(s) {item.stock} unidad(es)! </strong> </p>

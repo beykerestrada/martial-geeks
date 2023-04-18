@@ -19,11 +19,11 @@ const ItemCount = ({max,  cantidad,  setCantidad, agregar}) => {
     return (
         <div className='itemCount'>
             <div className="counter-container">
-                <button className='btn-counter btn-counter__resta' onClick={handleRestarItem} >-</button>
+                <button className={`btn-counter btn-counter__resta ${cantidad <= 1 ? 'btn-counter-disable' : ''}`} onClick={handleRestarItem} >-</button>
                 <div>
                     <p>{cantidad}</p>
                 </div>
-                <button className='btn-counter btn-counter__suma' onClick={handleSumarItem} disabled={cantidad >= max}>+</button>
+                <button className={`btn-counter btn-counter__suma ${cantidad >= max ? 'btn-counter-disable' : ''}`} onClick={handleSumarItem} disabled={cantidad >= max}>+</button>
             </div>
             <button className='secondaryButton' onClick={agregar} >Agregar al carrito</button>
         </div>

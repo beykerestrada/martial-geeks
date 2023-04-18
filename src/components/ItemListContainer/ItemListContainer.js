@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import './ItemListContainer.scss'
 import ItemList from '../ItemList/ItemList'
-import LoadingCardContainer from '../LoadingCardContainer/LoadingCardContainer'
 import { useParams } from 'react-router-dom'
 import CategoryFilter from '../CategoryFilter/CategoryFilter'
 import { collection, getDocs, query, where } from "firebase/firestore"
 import { dataBase } from "../../firebase/config"
+import { Loading } from '../Loading/Loading'
 
 
 const ItemListContainer = () => {
@@ -36,19 +36,18 @@ const ItemListContainer = () => {
 
     }, [productCategory])
 
+    if(loading){
+        return <Loading/>
+    }
+
     return (
         <div className="list-container">
             <h2 className="list-container__title">Tienda</h2>
             <hr/>
             <CategoryFilter/>
-            {
-                loading 
-                ? <LoadingCardContainer/> 
-                : 
                 <div>
                     <ItemList items={productos}/>
                 </div>
-            }
         </div>
     )
 }

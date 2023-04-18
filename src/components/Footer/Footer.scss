@@ -1,0 +1,41 @@
+.footer {
+    height: 100px;
+    padding: 20px;
+    background-color: #2a2929;
+    box-shadow: 0 -3px 16px #494848;
+    color: #dad7d7;
+    .copyright {
+        text-align: right;
+    }
+    .author-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        .author {
+            text-align: center;
+        }
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 7px;
+            li {
+                list-style-type: none;
+                display: inline;
+                margin: 0 5px;
+            }
+            a {
+                text-decoration: none;
+                color: inherit;
+                font-size: 18px;
+                font-weight: 700;
+                cursor: pointer;
+                &:hover {
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+    
+}

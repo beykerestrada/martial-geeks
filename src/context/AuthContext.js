@@ -18,33 +18,42 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
 
+   
     const signUp = (email, password, displayName) => {
         createUserWithEmailAndPassword(auth, email, password)
+            .then(async (userCredential) => {
+                const user = userCredential.user;
+                await updateProfile(user, { displayName: displayName });
+                return setUser(user);
+            })
+            .catch((error) => console.log(error))
+    }
+
+
+    const login = (email, password) => {
+        return signInWithEmailAndPassword(auth, email, password)
         .then(async (userCredential) => {
             const user = userCredential.user;
-            await updateProfile(user, { displayName: displayName });
-            return setUser(user);
-        })
-        .catch((error) => console.log(error))
-    }
-        
-
-    function login(email, password) {
-        return signInWithEmailAndPassword(auth, email, password);
+            setUser(user);
+            return user;
+          })
     }
 
-    const logout = () => { 
+    const logout = () => {
         signOut(auth)
-        .then(() => <Navigate to="/login"/>)
+        .then(() => setUser(null))
+            .then(() => <Navigate to="/login" />)
     }
-    useEffect(() =>{
-        onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser)
-            console.log(currentUser)
-        })
-    },[])
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+          setUser(currentUser);
+        });
+        return unsubscribe;
+      }, []);
 
     return (
+
         <AuthContext.Provider value={{ signUp, login, user, logout }}>
             {children}
         </AuthContext.Provider>

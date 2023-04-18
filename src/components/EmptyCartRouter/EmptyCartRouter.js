@@ -9,7 +9,7 @@ export const EmptyCartRouter = () => {
                     Agrega productos al carrito para verlos aquí 
                 </h3>
                 
-                <Link to="/" className='primaryButton btn-goToShop'>Visitar la tienda</Link>
+                <Link to="/tienda" className='primaryButton btn-goToShop'>Visitar la tienda</Link>
         </div>
     )
 }

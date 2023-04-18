@@ -5,13 +5,12 @@ import { CartItem } from '../CartItem/CartItem';
 import { Link } from 'react-router-dom';
 import { EmptyCartRouter } from '../EmptyCartRouter/EmptyCartRouter';
 
-/* import { Login } from '../Login/Login'; */
 
 export const Cart = () => {
     
     const { cart, vaciarCarrito, removerItem, totalCarrito, totalCantidad } = useContext(CartContext)
-
-
+    const estandarPesosChilenos = Intl.NumberFormat('es-CL');
+    
     if(cart.length === 0) {
         return <EmptyCartRouter/>
     }
@@ -35,8 +34,8 @@ export const Cart = () => {
                     <div className='summaryText'>
                         <h3 className='summaryTitle'>Revisa el detalle de tu compra</h3>
                         <hr/>
-                        <h3>Productos: {totalCantidad()}</h3>
-                        <h3>Total a pagar: <span>${totalCarrito()}</span> </h3>
+                        <h3>Productos: { totalCantidad()}</h3>
+                        <h3>Total a pagar: <span>${estandarPesosChilenos.format(totalCarrito())}</span> </h3>
                     </div>
 
                     <div className='summaryButtons'>

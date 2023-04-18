@@ -4,6 +4,7 @@ import { dataBase } from "../../firebase/config";
 import "./OrderSummary.scss"
 import { OrderSummaryItem } from "../OrderSummaryItem/OrderSummaryItem"
 import { useAuth } from "../../context/AuthContext";
+import { Loading } from "../Loading/Loading";
 
 export const OrderSummary = ({ orderId }) => {
   const [order, setOrder] = useState(null);
@@ -23,7 +24,7 @@ export const OrderSummary = ({ orderId }) => {
   }, [orderId]);
 
   if (!order) {
-    return <div>Cargando orden...</div>;
+    return <Loading/>
   }
 
   return (

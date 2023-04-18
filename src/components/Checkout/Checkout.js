@@ -4,9 +4,9 @@ import { CartContext } from "../../context/CartContext"
 import { EmptyCartRouter } from "../EmptyCartRouter/EmptyCartRouter"
 import { dataBase } from "../../firebase/config"
 import { collection, documentId, where, getDocs, query, writeBatch, addDoc } from "firebase/firestore"
-import LoadingCardContainer from "../LoadingCardContainer/LoadingCardContainer"
 import { OrderSummary } from "../OrderSummary/OrderSummary"
 import { useAuth } from "../../context/AuthContext"
+import { Loading } from "../Loading/Loading"
 
 
 
@@ -32,12 +32,15 @@ export const Checkout = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         setLoading(true)
+        const fecha = new Date();
+        const opciones = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+        const fechaFormateada = fecha.toLocaleString('es-CL', opciones);    
         const order = {
             uid: user.uid,
             buyer: values,
             products: cart,
             total: totalCarrito(),
-            date: new Date().toLocaleDateString()
+            date: fechaFormateada
         }
 
         const batch = writeBatch(dataBase)
@@ -71,7 +74,7 @@ export const Checkout = () => {
     }
 
     if (loading) {
-        return <LoadingCardContainer />
+        return <Loading/>
     }
     if (orderId) {
         return (

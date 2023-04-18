@@ -26,7 +26,7 @@ export const Login = () => {
             const token = await login(user.email, user.password)
             sessionStorage.setItem('token', token)
             login(user.email, user.password)
-            navigate('/cart')
+            navigate('/cuenta')
         } catch (error) {
             setError(error.message)
         }

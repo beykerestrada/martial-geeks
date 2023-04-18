@@ -3,16 +3,17 @@ import { getDocs, query, collection, where } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import { dataBase } from "../../firebase/config";
 import OrderList from "../OrderList/OrderList";
-import LoadingCardContainer from "../LoadingCardContainer/LoadingCardContainer";
-
+import { Loading } from "../Loading/Loading";
+import "./Account.scss"
 
 export const Account = () => {
     const [orders, setOrders] = useState([])
     const { user } = useAuth()
     const userUid = user.uid
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-
+        setLoading(true)
         // 1. Armar Referencia de Firebase(Sincrónica)
         const orderReference = collection(dataBase, "orders")
         const q = userUid
@@ -27,23 +28,24 @@ export const Account = () => {
                         ...doc.data()
                     }
                 }))
+                setLoading(false)
             })
+            .finally(
+                setLoading(false)
+            )
 
     }, [userUid])
-
+    if(loading) {
+        return <Loading/>
+    }
 
     return (
-        <div className="list-container">
+        <div className="section-container">
             <h2 className="list-container__title">Mis compras</h2>
             <hr />
-            {
-                !orders
-                    ? <LoadingCardContainer />
-                    :
-                    <div>
+                    <div className="oders-container">
                         <OrderList items={orders} />
                     </div>
-            }
         </div>
     )
 }

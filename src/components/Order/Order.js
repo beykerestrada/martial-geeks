@@ -6,13 +6,16 @@ const Order = ({ item, id }) => {
     console.log(products)
     return (
         <div className='order-card'>
-            <hr />
-            <p>Numero de órden: {id} </p>
-            <p>Fecha: {item.date}</p>
-            <p>Dirección de envío: <br /> {item.buyer.direccion}</p>
-            <p>Teléfono: {item.buyer.telefono}</p>
-            <p>Total: ${item.total}</p>
-            <p>Productos <ProductsList products={products}/></p>
+            <div className="order-card-products-container">
+                <p className="order-products"><ProductsList products={products} /></p>
+            </div>
+            <div className="order-card-summary">
+                <p className="order-number"><strong>Numero de órden:</strong> {id} </p>
+                <p className="order-date"><strong>Fecha:</strong> {item.date}</p>
+                <p className="order-address"><strong>Dirección de envío:</strong> <br /> {item.buyer.direccion}</p>
+                <p className="order-phone"><strong>Teléfono:</strong> {item.buyer.telefono}</p>
+                <p className="order-total"><strong>Total:</strong>  ${item.total} </p>
+            </div>
         </div>
     )
 }
