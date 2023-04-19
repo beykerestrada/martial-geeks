@@ -3,6 +3,7 @@ import { useState } from "react"
 import { useAuth } from "../../context/AuthContext"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
+import { FormAlert } from "../FormAlert/FormAlert"
 
 export const Register = () => {
     const [user, setUser] = useState({
@@ -25,7 +26,7 @@ export const Register = () => {
         e.preventDefault()
         setError('')
         try {
-            await signUp( user.email, user.password, user.fullName)
+            await signUp(user.email, user.password, user.fullName)
             setUser({
                 email: e.target.email
             })
@@ -38,15 +39,14 @@ export const Register = () => {
     return (
 
         <div>
-            {error && <p>{error}</p>}
             <div className="form-container">
-
+            {error && <FormAlert message={error}/>}
                 <form onSubmit={handleSubmit} className="form">
-                <div className="formTitle">
-                    <h3>Ingresa tus datos para crear tu usuario</h3>
-                    <hr />
-                </div>
-                <div className="input-container">
+                    <div className="formTitle">
+                        <h3>Ingresa tus datos para crear tu usuario</h3>
+                        <hr />
+                    </div>
+                    <div className="input-container">
                         <label className="label" htmlFor="fullName">Nombre y Apellido</label>
                         <input
                             type="text"
@@ -55,6 +55,7 @@ export const Register = () => {
                             onChange={handleInputChange}
                             name="fullName"
                             value={user.fullName}
+                            required
                         />
                     </div>
                     <div className="input-container">
@@ -65,6 +66,7 @@ export const Register = () => {
                             placeholder="email@dominio.com"
                             onChange={handleInputChange}
                             name="email"
+                            required
                         />
                     </div>
                     <div className="input-container">
@@ -75,9 +77,13 @@ export const Register = () => {
                             placeholder="******"
                             onChange={handleInputChange}
                             name="password"
+                            required
                         />
                     </div>
-                    <button className="formButton" type="submit">Registrarme</button>
+                    <div className="formButton-container">
+                        <div></div>
+                        <button className="formButton formButton-register" type="submit">Registrame</button>
+                    </div>
                 </form>
                 <div className="callback-container">
                     <p>¿Ya tienes una cuenta?</p>

@@ -9,7 +9,7 @@ export const LoginOrSignupButton = () => {
             <acronym className={"acronimo"} title={user ? "Ir al perfil" : "Ingreso / Registro"}>
                 <Link to={user ? "/cuenta" : "/login"} className="logoutButton userIcon-container" >
                     <FaUserAlt className={`logOut user`} />
-                    <p className="user__p">{!user ? "Ingresar" : "Cuenta"}</p>
+                    <p className="user__p">{!user ? "Ingresar" : "Compras"}</p>
                 </Link>
                 
             </acronym>

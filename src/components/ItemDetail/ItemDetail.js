@@ -5,10 +5,12 @@ import { CartContext } from '../../context/CartContext'
 import { Link } from 'react-router-dom'
 import { StockAlertRouter } from '../StockAlertRouter/StockAlertRouter'
 
+
 const ItemDetail = ({ item }) => {
     const { agregarAlCarrito, isInCart } = useContext(CartContext)
     const [cantidad, setCantidad] = useState(1)
     const estandarPesosChilenos = Intl.NumberFormat('es-CL');
+
     const handleAgregar = () => {
         const newItem = {
             ...item,
@@ -43,7 +45,7 @@ const ItemDetail = ({ item }) => {
                             ? 
                             <div className='cartRouter'>
                                 <Link to={"/cart"} className=' primaryButton btn-goToCart'>Ir al Carrito</Link>
-                                <Link to={"/"} className=' secondaryButton btn-goToCart btn-goToShop'>seguir comprando</Link>
+                                <Link to={"/tienda"} className=' secondaryButton btn-goToCart btn-goToShop'>seguir comprando</Link>
                             </div> 
                             : <ItemCount
                                 max={item.stock}

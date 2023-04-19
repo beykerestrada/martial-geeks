@@ -1,6 +1,8 @@
 
 export const ProductsList = ({ products }) => {
 
+  const estandarPesosChilenos = Intl.NumberFormat('es-CL');
+  
   return (
     <>
       {products.map((item) => (
@@ -12,7 +14,7 @@ export const ProductsList = ({ products }) => {
             <p><strong>Id de producto:</strong> {item.id}</p>
             <p><strong>Nombre:</strong> {item.name}</p>
             <p><strong>Cantidad:</strong> {item.cantidad}</p>
-            <p><strong>Precio:</strong> $ { item.price}</p>
+            <p><strong>Precio:</strong> $ {estandarPesosChilenos.format(item.price)}</p>
           </div>
         </div>
       ))}

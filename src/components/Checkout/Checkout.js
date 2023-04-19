@@ -16,6 +16,7 @@ export const Checkout = () => {
     const [loading, setLoading] = useState(false)
     const [orderId, setOrderId] = useState(null)
     const { cart, totalCarrito, vaciarCarrito } = useContext(CartContext)
+    
     const [values, setValues] = useState({
         nombre: user.displayName,
         direccion: "",
@@ -121,7 +122,10 @@ export const Checkout = () => {
                         name="telefono"
                     />
                 </div>
-                <button className="formButton checkoutButton" type="submit">Aceptar</button>
+                <div className="formButton-container">
+                        <div></div>
+                        <button className="formButton" type="submit">Finalizar compra</button>
+                    </div>
             </form>
         </div>
     )

@@ -1,19 +1,16 @@
 import "../scss/forms.scss"
 import { useState } from "react"
 import { useAuth } from "../../context/AuthContext"
-import { useNavigate, Link } from "react-router-dom"
+import {  Link } from "react-router-dom"
 import { FormAlert } from "../FormAlert/FormAlert"
 
-export const Login = () => {
+export const ResetPassword = () => {
     const [user, setUser] = useState({
         email: "",
         password: "",
     })
 
-
-
-    const { login } = useAuth()
-    const navigate = useNavigate()
+    const { resetPassword } = useAuth()
     const [error, setError] = useState()
     const handleInputChange = (e) =>
         setUser({
@@ -25,10 +22,8 @@ export const Login = () => {
         e.preventDefault()
         setError('')
         try {
-            const token = await login(user.email, user.password)
-            sessionStorage.setItem('token', token)
-            login(user.email, user.password)
-            navigate('/cuenta')
+            resetPassword(user.email)
+            setError('Si tu correo existe en nuestras bases de datos, recibiras un mensaje con las instrucciones para recuperar la contraseña')
         } catch (error) {
             setError(error.message)
         }
@@ -38,10 +33,10 @@ export const Login = () => {
 
         <div>
             <div className="form-container">
-            {error && <FormAlert message={error}/>}
+                {error && <FormAlert message={error} />}
                 <form onSubmit={handleSubmit} className="form">
                     <div className="formTitle">
-                        <h3>Ingresa tus datos de acceso</h3>
+                        <h3>Ingresa tu correo para recuperar tu contraseña</h3>
                         <hr />
                     </div>
                     <div className="input-container">
@@ -55,25 +50,15 @@ export const Login = () => {
                             required
                         />
                     </div>
-                    <div className="input-container">
-                        <label className="label" htmlFor="password">Contraseña</label>
-                        <input
-                            type="password"
-                            className="input-text"
-                            placeholder="******"
-                            onChange={handleInputChange}
-                            name="password"
-                            required
-                        />
-                    </div>
+
                     <div className="formButton-container">
-                        <Link className=" formButton-naked" to={"/reset-password"}>Olvidé mi contraseña</Link>
-                        <button className="formButton" type="submit">Iniciar sesión</button>
+                        <div></div>
+                        <button className="formButton" type="submit">Recuperar contraseña</button>
                     </div>
                 </form>
                 <div className="callback-container">
-                    <p>¿No tienes una cuenta?</p>
-                    <Link className="callback" to={"/register"}>Registrarme</Link>
+                    <p>¿Recordaste tu contraseña?</p>
+                    <Link className="callback" to={"/login"}>Iniciar sesión</Link>
                 </div>
             </div>
 

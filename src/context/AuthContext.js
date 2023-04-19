@@ -4,6 +4,7 @@ import {
     signInWithEmailAndPassword,
     onAuthStateChanged,
     signOut,
+    sendPasswordResetEmail,
     updateProfile
 } from "firebase/auth";
 import { auth } from "../firebase/config";
@@ -30,19 +31,21 @@ export const AuthProvider = ({ children }) => {
     }
 
 
-    const login = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password)
-        .then(async (userCredential) => {
-            const user = userCredential.user;
-            setUser(user);
-            return user;
-          })
+    const login = async (email, password) => {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        setUser(user);
+        return user;
     }
 
     const logout = () => {
         signOut(auth)
         .then(() => setUser(null))
             .then(() => <Navigate to="/login" />)
+    }
+
+    const resetPassword = (email) => {
+        sendPasswordResetEmail(auth, email)
     }
 
     useEffect(() => {
@@ -54,7 +57,7 @@ export const AuthProvider = ({ children }) => {
 
     return (
 
-        <AuthContext.Provider value={{ signUp, login, user, logout }}>
+        <AuthContext.Provider value={{ signUp, login, user, logout, resetPassword }}>
             {children}
         </AuthContext.Provider>
     )

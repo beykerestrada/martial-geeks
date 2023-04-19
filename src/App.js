@@ -14,6 +14,7 @@ import { Account } from "./components/Account/Account";
 import Hero from "./components/Hero/Hero";
 import { Footer } from "./components/Footer/Footer";
 import { ScrollToTop } from "./components/ScrollToTop/ScrollToTop";
+import { ResetPassword } from "./components/ResetPassword/ResetPassword";
 function App() {
 
   return (
@@ -24,6 +25,7 @@ function App() {
             <Navbar />
             <Routes>
               <Route path='/tienda' element={<ItemListContainer />} />
+              <Route path='/reset-password' element={<ResetPassword />} />
               <Route path='/' element={<Hero />} />
               <Route path='/category/:productCategory' element={<ItemListContainer />} />
               <Route path='/item/:productId' element={<ItemDetailContainer />} />

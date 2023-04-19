@@ -7,8 +7,11 @@ import { useAuth } from "../../context/AuthContext";
 import { Loading } from "../Loading/Loading";
 
 export const OrderSummary = ({ orderId }) => {
+
+  const estandarPesosChilenos = Intl.NumberFormat('es-CL');
   const [order, setOrder] = useState(null);
   const { user } = useAuth()
+
   useEffect(() => {
     const getOrder = async () => {
       const orderDoc = doc(dataBase, "orders", orderId);
@@ -51,7 +54,7 @@ export const OrderSummary = ({ orderId }) => {
             />
           )}
         </div>
-        <h4 className="orderSummary-total"><strong>Total de la compra:</strong> <span>${order.total}</span></h4>
+        <h4 className="orderSummary-total"><strong>Total de la compra:</strong> <span>${estandarPesosChilenos.format(order.total)}</span></h4>
       </div>
     </div>
   );
