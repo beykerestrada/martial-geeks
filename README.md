@@ -40,7 +40,7 @@ En la vista del detalle se muestra la foto y la descripción del producto, su pr
 
 <img width="1124" alt="Captura de pantalla 2023-04-20 a la(s) 02 55 24" src="https://user-images.githubusercontent.com/96588336/233284991-4f6f3058-0cb2-48f5-9e88-b553c6e5a906.png">
 
-Además este componente tiene varios parámetros para mostrar diferentes cosas dependiendo del stock del producto o de di ya está agregado al carrito
+Además este componente tiene varios parámetros para mostrar diferentes cosas dependiendo del stock del producto o de si ya está agregado al carrito
 
 - Si ya está agregado al carrio, te da la opción de ir al carrito o volver a la tienda
 
