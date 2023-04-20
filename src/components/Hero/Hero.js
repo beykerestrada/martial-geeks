@@ -41,7 +41,7 @@ const Hero = () => {
                             Entendemos lo que buscas porque nosotros también lo buscamos.
                         </h4>
                         <p>
-                            Todos nuestros productos son sometidos a pruebas en condiciones intensas de enternamiento y sparring para asegurar su calidad.
+                            Todos nuestros productos son sometidos a pruebas en condiciones intensas de entrenamiento y sparring para asegurar su calidad.
                         </p>
                         <p>
                             <strong>No te vendemos nada que no usariamos nosotros</strong>
