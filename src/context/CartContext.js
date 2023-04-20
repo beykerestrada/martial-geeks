@@ -12,7 +12,7 @@ export const CartProvider = ({ children }) => {
     const { user } = useAuth()
     const uid = user?.uid
     const cartReference = uid && doc(dataBase, "carts", uid)
-
+    
 
 
 

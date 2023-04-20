@@ -4,7 +4,7 @@ const Order = ({ item, id }) => {
     const estandarPesosChilenos = Intl.NumberFormat('es-CL');
     const products = item.products
 
-    console.log(products)
+
     return (
         <div className='order-card'>
             <div className="order-card-products-container">

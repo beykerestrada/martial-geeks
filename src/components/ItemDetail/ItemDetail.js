@@ -2,16 +2,23 @@ import './ItemDetail.scss'
 import { useContext, useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import { CartContext } from '../../context/CartContext'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { StockAlertRouter } from '../StockAlertRouter/StockAlertRouter'
+import { useAuth } from '../../context/AuthContext'
 
 
 const ItemDetail = ({ item }) => {
     const { agregarAlCarrito, isInCart } = useContext(CartContext)
     const [cantidad, setCantidad] = useState(1)
     const estandarPesosChilenos = Intl.NumberFormat('es-CL');
-
+    const { user } = useAuth()
+    const navigate = useNavigate()
     const handleAgregar = () => {
+
+        if(!user) {
+            navigate('/login');
+        }
+        
         const newItem = {
             ...item,
             cantidad

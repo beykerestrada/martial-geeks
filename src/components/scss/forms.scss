@@ -56,22 +56,17 @@
                 line-height: 1.25;
                 outline: none;
                 box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.097), 0 1px 2px -1px rgb(0 0 0 / 0.097);
-
                 &::placeholder {
                     color: #b8b3b3;
                 }
-                
                 &:focus {
                     color: #717171;
                     outline: 2px solid #55cfc999;
                     box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
                 }
-
                 &:focus:invalid {
                     outline: 2px solid #FF3130;
                 }
-
-
                 &:focus:placeholder-shown {
                     appearance: none;
                     border-radius: 3px;
@@ -84,6 +79,15 @@
                     outline: none;
                     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 2px -1px rgb(0 0 0 / 0.2);
                 }
+            }
+            .errorMessage {
+                display: block;
+                margin-top: 3px;
+                font-size: 14px;
+                padding: 3px;
+                background-color: #f4adad;
+                color: #2c2b2b;
+                border-radius: 3px;
             }
         }
         .formButton-container {
