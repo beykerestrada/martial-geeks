@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# E-commerce - Tienda de productos de artes marciales
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Simula el flujo de un e-commerce, se obtienen los productos de una base de datos, se valida su stock. Se agregan al carrito y se crea una orden qye se almacena tambien en su propia colección. Se puede registar usuarios, hacer login, recuperar contraseña, el carrito es persistente. 
 
-## Available Scripts
+## Consigna
+- Un usuario debe poder ingresar, navegar a los productos y ver sus detalles
+- Desde el detalle se debe poder ver la descripción, foto y precio e ingresarlo al carrito
+- Una vez que el carrito tenga al menos un producto, se deberá visualizar un listado compacto de la orden con el precio total.
+- Al ingresar sus datos, debe activarse el botón de de realizar compra
+- Al realizar compra, debe guardarse en la base de datos una orden que tenga todos los productos, la fecha y dar feedback del número de orden.
 
-In the project directory, you can run:
+## Resultado
+Se crean los flujos, componentes, rutas y validaciones necesarias para cumplir con la consigna, además se agregan componentes adicionales
 
-### `npm start`
+### Página de inicio
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Se crea una página de inicio para invitar al usuario a visitar la tienda, el navbar tiene varios componentes que se renderizan dependiendo de las acciones del usuario
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<img width="1232" alt="Captura de pantalla 2023-04-20 a la(s) 02 43 29" src="https://user-images.githubusercontent.com/96588336/233282119-4e9d63d0-53df-42a3-9494-8dda72aa6f2b.png">
 
-### `npm test`
+- El CartWidget se renderiza condicionalmente si el usuario agrega un ítem al carrito
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- El Widget de usuario se renderiza condicionalmente: Si el usuario está logueado, lo lleva a la sección "Mis compras" que contiene un historial de las compras que ha realizado. Si el usuario no está logueado, lo dirige a la página de login
 
-### `npm run build`
+<img width="895" alt="Captura de pantalla 2023-04-20 a la(s) 03 06 36" src="https://user-images.githubusercontent.com/96588336/233287530-eb815477-c758-41e5-9cc7-5cbb618ca406.png">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- El ícono de logout se renderiza condicionalmente, solo se muestra si el usuario está logueado para permitirle cerrar sesión
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Tienda
+En la página de Tienda se renderizan los productos que se obtienen desde una base de datos alojada en Firebase
 
-### `npm run eject`
+Contiene un menú que filtra las categorías y renderiza los productos con base en estos filtros
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<img width="968" alt="Captura de pantalla 2023-04-20 a la(s) 02 50 51" src="https://user-images.githubusercontent.com/96588336/233283985-1d2e914f-4bf5-4633-978a-3aefc5f04a31.png">
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Detalle del producto
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+En la vista del detalle se muestra la foto y la descripción del producto, su precio y el componente para agregar el producto al carrito
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<img width="1124" alt="Captura de pantalla 2023-04-20 a la(s) 02 55 24" src="https://user-images.githubusercontent.com/96588336/233284991-4f6f3058-0cb2-48f5-9e88-b553c6e5a906.png">
 
-## Learn More
+Además este componente tiene varios parámetros para mostrar diferentes cosas dependiendo del stock del producto o de di ya está agregado al carrito
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Si ya está agregado al carrio, te da la opción de ir al carrito o volver a la tienda
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img width="343" alt="Captura de pantalla 2023-04-20 a la(s) 02 57 17" src="https://user-images.githubusercontent.com/96588336/233285368-e8d29041-7855-47af-8a86-d1076f14e37f.png">
 
-### Code Splitting
+- Si queda poco stock te avisa con un mensaje
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<img width="877" alt="Captura de pantalla 2023-04-20 a la(s) 02 58 18" src="https://user-images.githubusercontent.com/96588336/233285584-6f2c90c5-83c1-4dfe-bd69-9d59ca49755f.png">
 
-### Analyzing the Bundle Size
+ - Además, los botones de sumar o restar la cantidad se deshabilitan en caso de que se seleccione la cantidad mínima (1) o máxima (stock máximo) 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<img width="318" alt="Captura de pantalla 2023-04-20 a la(s) 02 59 16" src="https://user-images.githubusercontent.com/96588336/233285802-adecacbc-3a4a-46bf-9347-45d8fd721992.png">
 
-### Making a Progressive Web App
+- Si el producto está agotado, se deshabilita el componente de agregegar al carrito y en su lugar se renderiza un botón para volver a la tienda
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<img width="792" alt="Captura de pantalla 2023-04-20 a la(s) 03 05 02" src="https://user-images.githubusercontent.com/96588336/233287053-8d0cb573-c6b8-4c63-a690-34169a788753.png">
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Resumen de la compra
+Al finalizar la compra, se genera una orden que se guarda en la base de datos y se entrega un resumen de la compra
 
-### Deployment
+<img width="660" alt="Captura de pantalla 2023-04-20 a la(s) 03 03 01" src="https://user-images.githubusercontent.com/96588336/233286656-54ea7732-2662-44e8-be7c-96b1a376691d.png">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Formularios
 
-### `npm run build` fails to minify
+Se crean formularios para Registro de usuario, Login, Recuperar contraseña y terminar compra. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+En el caso de los tres primeros, se puede cambiar fácilmente entre estos según las necesidades del usuario 
+
+<img width="569" alt="Captura de pantalla 2023-04-20 a la(s) 03 12 46" src="https://user-images.githubusercontent.com/96588336/233288893-ba0fe598-b46f-4ed0-ac34-9f2898d38e66.png">
+
+Además se hacen validaciones para evitar errores en los datos y se muestran estos errores al usuario para que pueda tomar acción
+
+<img width="492" alt="Captura de pantalla 2023-04-20 a la(s) 03 15 22" src="https://user-images.githubusercontent.com/96588336/233289331-8726d212-85a4-4b35-927d-a88b02cf9145.png">
+
+### Carrito, compras e historial de órdenes persistente
+
+Los usuarios se almacenan en la base de datos y cada usuario tiene un carrito y un historial de órdenes asociado, por lo que podrá verlos cada vez que se loguée
+
+### Recuperación de contraseña
+
+Finalmente, se incorporó la opción de recuperar contraseña, al usuario se le envía un correo con el enlace de recuperación
+
+![Captura de pantalla 2023-04-20 a la(s) 03 21 17](https://user-images.githubusercontent.com/96588336/233290941-327ed9ac-f42f-43f8-a526-541c397086db.png)
+
+
+
