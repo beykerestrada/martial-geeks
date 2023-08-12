@@ -26,9 +26,7 @@
             height: 80px;
         }
         .nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+
             .nav__item {
                 font-size: 16px;
                 padding: 10px;
@@ -71,6 +69,68 @@
                         font-size: 10px;
                         text-decoration: none;
                         color: #232323;
+                    }
+                }
+            }
+        }
+        .nav-responsive {
+            display: flex;
+            padding: 24px;
+            position: absolute;
+            top: 70px;
+            right: 0px;
+            margin: 10px 8px;
+            flex-direction: column;
+            gap: 10px;
+            background-color: #232323;
+            border-radius: 16px;
+            
+            justify-content: center;
+            align-items: center;
+            .nav-responsive__item {
+                color: #c9c4c4;
+                font-size: 16px;
+                padding: 10px;
+                text-transform: uppercase;
+                cursor: pointer;
+                font-weight: 700;
+                text-decoration: none;
+                border: none;
+                background-color: transparent;
+                transition: all .4s;
+                
+            }
+            .nav-responsive__option {
+                &:hover {
+                    background-color: #FF3130;
+                    color: white;
+                }
+            }
+            .userWidget-responsive {
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                text-decoration: none;
+                &::before {
+                    content: "";
+                    height: 20px;
+                    width: 2px;
+                    background-color: transparent;
+                }
+                .userIcon-container {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    text-decoration: none;
+                    color: #c9c4c4;
+                    p {
+                        margin: auto 0;
+                        display: inline;
+                        font-size: 16px;
+                        text-decoration: none;
+                    }
+                    .user {
+                        color: #c9c4c4;
                     }
                 }
             }
